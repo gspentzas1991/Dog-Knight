@@ -11,6 +11,7 @@ TagManager:
   - CustomizationWeapon
   - CustomizationShield
   - CustomizationBody
+  - StageFocalPoint
   layers:
   - Default
   - TransparentFX
