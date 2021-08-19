@@ -736,6 +736,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &568601769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568601770}
+  m_Layer: 0
+  m_Name: StageFocalPoint
+  m_TagString: StageFocalPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &568601770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568601769}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.68471, y: -0.7, z: 0.0024690628}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1333316495}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &657610394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,6 +1451,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1589,6 +1620,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0288a777010c5fe4090447cc0b2aff24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 1, z: -13}
+  smoothTime: 0.5
+  minZoom: 60
+  maxZoom: 30
+  zoomLimiter: 20
 --- !u!1 &1085210618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,8 +1960,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187636844}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 8, y: 1, z: 7}
+  m_LocalPosition: {x: 0, y: 5.88, z: 10}
+  m_LocalScale: {x: 12, y: 1, z: 12}
   m_Children:
   - {fileID: 164235146}
   - {fileID: 1273424842}
@@ -2041,6 +2089,7 @@ Transform:
   - {fileID: 158372995}
   - {fileID: 1341938057}
   - {fileID: 289935541}
+  - {fileID: 568601770}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2613,7 +2662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1709137196263223851, guid: 3e6b1d75f088b14458284124ecbb7aa5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.42
+      value: -9.31
       objectReference: {fileID: 0}
     - target: {fileID: 1709137196263223851, guid: 3e6b1d75f088b14458284124ecbb7aa5, type: 3}
       propertyPath: m_LocalPosition.y
