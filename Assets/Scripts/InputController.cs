@@ -25,12 +25,12 @@ public class InputController : BehaviourController
 
         if (Input.GetKeyDown(jumpKey))
         {
-            receivedJumpInput = true;
+            jumpInput.receivedInput = true;
         }
 
         if (Input.GetKeyDown(attackKey))
         {
-            receivedAttackInput = true;
+            attackInput.receivedInput = true;
             CalculateAttackDirection();
         }   
     }

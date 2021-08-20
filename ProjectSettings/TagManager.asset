@@ -12,6 +12,7 @@ TagManager:
   - CustomizationShield
   - CustomizationBody
   - StageFocalPoint
+  - PlatformLedge
   layers:
   - Default
   - TransparentFX

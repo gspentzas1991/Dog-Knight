@@ -93,12 +93,12 @@ public class FighterAI : BehaviourController
 
         if (targetFighter.transform.position.y > transform.position.y + jumpTreshold)
         {
-            receivedJumpInput = true;
+            jumpInput.receivedInput = true;
         }
         else
         {
             //We reset the jump input to false, so that the enemy doesn't jump due to buffering
-            receivedJumpInput = false;
+            jumpInput.resetInput = true;
         }
         var distanceToTarget = Vector3.Distance(targetFighter.transform.position, transform.position);
         //If we are within caution range and the player is attackig, then back away
@@ -148,7 +148,7 @@ public class FighterAI : BehaviourController
         //If the target is within range, start attacking
         else
         {
-            receivedAttackInput = true;
+            attackInput.receivedInput = true;
             //Calculate the direction of the attack
             attackHorizontalDirection = AttackHorizontalDirection.Center;
             attackVerticalDirection = AttackVerticalDirection.Center;
