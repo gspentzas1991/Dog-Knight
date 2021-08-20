@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Fighter : MonoBehaviour
 {
-    private BehaviourController _behaviourController;
+    public BehaviourController _behaviourController;
     private FighterAnimatorController _animatorController;
     private AudioSource _audioSource;
     private Rigidbody _rigidbody;
@@ -60,8 +60,11 @@ public class Fighter : MonoBehaviour
     {
         //Set animator values
         _animatorController.gotHurt = isHitStunned;
-        _animatorController.attacked = attackController.isAttacking;
-        _animatorController.jumped = _behaviourController.receivedJumpInput;
+        if (attackController != null)
+        {
+            _animatorController.attacked = attackController.isAttacking;
+        }
+        _animatorController.jumped = _behaviourController.jumpInput.receivedInput;
         _animatorController.horizontalSpeed = Mathf.Abs(_rigidbody.velocity.x);
         _animatorController.verticalSpeed = _rigidbody.velocity.y;
         _animatorController.UpdateValues();
@@ -79,8 +82,8 @@ public class Fighter : MonoBehaviour
         //If we're in hitstun then we remove all buffered inputs
         if (isHitStunned)
         {
-            _behaviourController.receivedJumpInput = false;
-            _behaviourController.receivedAttackInput = false;
+            _behaviourController.jumpInput.resetInput = true;
+            _behaviourController.attackInput.resetInput = true;
         }
         else
         {
@@ -88,18 +91,20 @@ public class Fighter : MonoBehaviour
             Move();
 
             //Jump detection
-            if (_behaviourController.receivedJumpInput && (isGrounded || hasDoubleJump))
+            if (_behaviourController.jumpInput.receivedInput && (isGrounded || hasDoubleJump))
             {
                 Jump();
-            }        
+            }
+
             //attack
-            if (_behaviourController.receivedAttackInput)
+            if (attackController != null && _behaviourController.attackInput.receivedInput)
             {
                 attackController.Attack(_behaviourController.attackVerticalDirection, _behaviourController.attackHorizontalDirection);
-                _behaviourController.receivedAttackInput = false;
+                _behaviourController.attackInput.resetInput = true;
             }
         }
     }
+
 
     /// <summary>
     /// Changes horizontal velocity depending on input
@@ -115,7 +120,7 @@ public class Fighter : MonoBehaviour
     /// Applies vertical velocity and turns the jump input flag false
     /// </summary>
     private void Jump()
-    {            
+    {
         //Play the hurt audioclip
         _audioSource.clip = jumpAudioClip;
         _audioSource.pitch = 2;
@@ -132,7 +137,7 @@ public class Fighter : MonoBehaviour
         }
         newVelocity.y = jumpForce;
         _rigidbody.velocity = newVelocity;
-        _behaviourController.receivedJumpInput = false;
+        _behaviourController.jumpInput.resetInput = true;
     }
 
     /// <summary>

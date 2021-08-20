@@ -13,12 +13,12 @@ public class CameraFollowFighters : MonoBehaviour
     [SerializeField] private float maxZoom = 30f;
     [SerializeField] private float zoomLimiter = 20f;
     private Bounds targetBounds;
-    private Camera camera;
+    private Camera stageCamera;
     private Transform stageFocalPoint;
 
     private void Start()
     {
-        camera = GetComponent<Camera>();
+        stageCamera = GetComponent<Camera>();
         stageFocalPoint = GameObject.FindGameObjectWithTag("StageFocalPoint").transform;
     }
     private void Update()
@@ -72,7 +72,7 @@ public class CameraFollowFighters : MonoBehaviour
     private void Zoom()
     {
         float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance()/ zoomLimiter);
-        camera.fieldOfView = Mathf.Lerp(camera.fieldOfView,newZoom,Time.deltaTime);
+        stageCamera.fieldOfView = Mathf.Lerp(stageCamera.fieldOfView,newZoom,Time.deltaTime);
     }
 
     private float GetGreatestDistance()

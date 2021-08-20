@@ -12,8 +12,8 @@ public class BehaviourController : MonoBehaviour
     //axisInputs
     public float horizontalMovement;
     public float verticalMovement;
-    public bool receivedJumpInput;
-    public bool receivedAttackInput;
+    public InputStatus jumpInput = new InputStatus();
+    public InputStatus attackInput = new InputStatus();
 
     public AttackHorizontalDirection attackHorizontalDirection;
     public AttackVerticalDirection attackVerticalDirection;
@@ -25,6 +25,14 @@ public class BehaviourController : MonoBehaviour
 
     protected virtual void Update()
     {
-        
+        if (jumpInput.resetInput)
+        {
+            jumpInput.Reset();
+        }
+        if (attackInput.resetInput)
+        {
+            attackInput.Reset();
+        }
     }
+
 }

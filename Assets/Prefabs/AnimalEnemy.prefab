@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6081533703435825486}
   - component: {fileID: 1186677740069966690}
   - component: {fileID: 703537279061939622}
+  - component: {fileID: -4513623592008568131}
   m_Layer: 6
   m_Name: AnimalEnemy
   m_TagString: Enemy
@@ -272,6 +273,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b70a03ca25c3f6143ab78ba6ebd4c4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4513623592008568131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127308133178659913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86ce8e2b269cf846b470ef15021b7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7286234419438201095

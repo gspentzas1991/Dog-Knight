@@ -71,9 +71,10 @@ GameObject:
   - component: {fileID: -1687875051774445328}
   - component: {fileID: 7698115224760808292}
   - component: {fileID: 59225859}
+  - component: {fileID: 1730605267}
+  - component: {fileID: 3880844841679482496}
   - component: {fileID: -6435540317069373496}
   - component: {fileID: 5595856051888655224}
-  - component: {fileID: 1730605267}
   - component: {fileID: 1954639959096846491}
   m_Layer: 3
   m_Name: Player
@@ -243,6 +244,44 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1730605267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709137196263223831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a8a9ec7c1277c4a82417733c8100ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalMovement: 0
+  verticalMovement: 0
+  receivedJumpInput: 0
+  receivedAttackInput: 0
+  attackHorizontalDirection: 0
+  attackVerticalDirection: 0
+  jumpKey: 32
+  attackKey: 107
+  horizontalAxisName: Horizontal
+  verticalAxisName: Vertical
+--- !u!114 &3880844841679482496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709137196263223831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86ce8e2b269cf846b470ef15021b7da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ledgeGrabTimer: 0.5
+  isHoldingLedge: 0
+  canGrabLedge: 0
+  ledgeOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &-6435540317069373496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277328d2a4ab13e458c2bf1586556b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _behaviourController: {fileID: 0}
   attackController: {fileID: 0}
   hurtPercentage: 0
   displayName: Dog
@@ -291,28 +331,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackAudioClip: {fileID: 8300000, guid: 5be5f866b237a824cba6882f1007c07b, type: 3}
---- !u!114 &1730605267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709137196263223831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43a8a9ec7c1277c4a82417733c8100ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalMovement: 0
-  verticalMovement: 0
-  receivedJumpInput: 0
-  receivedAttackInput: 0
-  attackHorizontalDirection: 0
-  attackVerticalDirection: 0
-  jumpKey: 32
-  attackKey: 107
-  horizontalAxisName: Horizontal
-  verticalAxisName: Vertical
 --- !u!82 &1954639959096846491
 AudioSource:
   m_ObjectHideFlags: 0
