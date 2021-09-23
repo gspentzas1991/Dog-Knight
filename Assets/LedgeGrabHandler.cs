@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BehaviourController))]
-public class LedgeGrabHndler : MonoBehaviour
+public class LedgeGrabHandler : MonoBehaviour
 {
     /// <summary>
     /// The time after letting go of a ledge, where you can't grab it again

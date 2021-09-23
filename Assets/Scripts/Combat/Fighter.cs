@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Fighter : MonoBehaviour
 {
+    //TODO: Some of those should be required
     public BehaviourController _behaviourController;
     private FighterAnimatorController _animatorController;
     private AudioSource _audioSource;

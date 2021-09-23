@@ -32,12 +32,14 @@ public class FighterAI : BehaviourController
     /// The frequency during which the ai decides on a behaviour. Used to adjust the difficulty of the fighter
     /// </summary>
     [SerializeField] public float behaviourDescisionFrequency = 0.5f;
+    private LedgeGrabHandler _ledgeGrabHandler;
 
     protected override void Start()
     {
         base.Start();
         attackController = GetComponent<AttackController>();
         targetFighter = GameObject.FindGameObjectWithTag(targetTag)?.GetComponent<Fighter>();
+        _ledgeGrabHandler = GetComponent<LedgeGrabHandler>();
         StartCoroutine(DecideBehaviour());
     }
 
@@ -71,10 +73,22 @@ public class FighterAI : BehaviourController
                     Attack();
                     break;
             }
+            RegularBehaviour();
             yield return new WaitForSeconds(behaviourDescisionFrequency);
             StartCoroutine(DecideBehaviour());
         }
 
+    }
+
+    /// <summary>
+    /// Behaviour checks that run in all combatStates
+    /// </summary>
+    private void RegularBehaviour()
+    {
+        if (_ledgeGrabHandler.isHoldingLedge)
+        {
+            jumpInput.receivedInput = true;
+        }
     }
 
     /// <summary>
@@ -97,8 +111,12 @@ public class FighterAI : BehaviourController
         }
         else
         {
-            //We reset the jump input to false, so that the enemy doesn't jump due to buffering
-            jumpInput.resetInput = true;
+            //We don't want to clear the buffer if the enemy holds a ledge
+            if (!_ledgeGrabHandler.isHoldingLedge)
+            {
+                //We reset the jump input to false, so that the enemy doesn't jump due to buffering
+                jumpInput.resetInput = true;
+            }
         }
         var distanceToTarget = Vector3.Distance(targetFighter.transform.position, transform.position);
         //If we are within caution range and the player is attackig, then back away

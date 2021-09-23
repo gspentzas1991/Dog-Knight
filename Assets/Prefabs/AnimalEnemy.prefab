@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277328d2a4ab13e458c2bf1586556b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _behaviourController: {fileID: 0}
   attackController: {fileID: 0}
   hurtPercentage: 0
   displayName: 
@@ -257,12 +258,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalMovement: 0
   verticalMovement: 0
-  receivedJumpInput: 0
-  receivedAttackInput: 0
   attackHorizontalDirection: 0
   attackVerticalDirection: 0
   targetTag: Player
-  behaviourDescisionFrequency: 0.5
+  behaviourDescisionFrequency: 0.3
 --- !u!114 &703537279061939622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86ce8e2b269cf846b470ef15021b7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ledgeGrabTimer: 3
+  isHoldingLedge: 0
+  canGrabLedge: 0
+  ledgeOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &7286234419438201095
 GameObject:
   m_ObjectHideFlags: 0
